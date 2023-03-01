@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    <title>item info</title>
+</head>
+<body>
+    <main class="container">
+        <div>
+            <hgroup>
+                <h2>'{{model}}'의 상품정보</h2>
+                <h3></h3>
+                <a href="/">메인으로</a>
+            </hgroup>
+            <div>
+                <span>상품명</span>
+                <input type="text" value="{{item_info.title}}">
+            </div>
+            <div>
+                <span>상품번호</span>
+                <input type="text" value="{{item_info.model}}">
+            </div>
+            <div>
+                <span>가격</span>
+                <input type="text" value="{{item_info.price}}">
+            </div>
+            <div>
+                <span>색상</span>
+                <input type="text" value="{{item_info.color}}">
+            </div>
+            <div>
+                <span>사이즈</span>
+                <input type="text" value="{{item_info.size}}">
+            </div>
+            <div>
+                <span>제품소재</span>
+                <input type="text" value="{{item_info.material}}">
+            </div>
+            <div>
+                <span>제조국</span>
+                <input type="text" value="{{item_info.country}}">
+            </div>
+            <div>
+                <span>제조사</span>
+                <input type="text" value="{{item_info.company}}">
+            </div>
+            <div>
+                <span>제조일</span>
+                <input type="text" value="{{item_info.create_date}}">
+            </div>
+            <div>
+                <span>세탁방법</span>
+                <input type="text" value="{{item_info.washing_method}}">
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    <title>search Item</title>
+</head>
+<body>
+    <main class="container">
+        <form action="/scrap">
+            <hgroup>
+                <h2>상품정보 검색</h2>
+                <h3></h3>
+            </hgroup>
+            <fieldset>
+                <label for="ssg">
+                    <input type="checkbox" id="ssg" name="ssg" valeu="ssg" checked>
+                    SSG
+                </label>
+                <label for="hd">
+                    <input type="checkbox" id="hd" name="hd" valeu="hd">
+                    Hmall
+                </label>
+                <label for="lt">
+                    <input type="checkbox" id="lt" name="lt" valeu="lt">
+                    롯데ON
+                </label>
+            </fieldset>
+            <input type="search" id="model" name="model" placeholder="모델명(상품번호)을 입력해주세요.">
+            <button onclick="loading(this)">스크랩하기</button>
+        </form>
+    </main>
+</body>
+<script>
+    function loading(element) {
+        element.setAttribute('aria-busy','true');
+    }
+</script>
+</html>

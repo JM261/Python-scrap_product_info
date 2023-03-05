@@ -17,7 +17,6 @@ def scrape_item_from_ssg(model):
     
     check = browser.find_elements(By.CSS_SELECTOR, ".com_tmpl_content")
     
-    
     if len(check) != 0 :
         elements = browser.find_elements(By.CSS_SELECTOR, ".thmb a")
         
@@ -106,7 +105,3 @@ def scrape_item_from_ssg(model):
     browser.quit()
     
     return result
-    
-    
-    
-    

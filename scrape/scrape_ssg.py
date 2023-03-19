@@ -28,19 +28,9 @@ def scrape_item_from_ssg(model):
     
     title_tag = soup.find("span",class_="cdtl_info_tit_name")
     if title_tag != None:
-        for child in title_tag.select('.cdtl_info_tit_name > *'):
-            child.extract()
-        title_list = title_tag.text.split("(")
-        title = title_list[0].strip()
+        title = ''.join(title_tag.find_all(text=True, recursive=False)).strip()
     else:
         title = "";
-        
-    model_tag = soup.find("p",class_="cdtl_model_num")
-    if model_tag != None:
-        model_list = model_tag.text.split(":")
-        model = model_list[1].strip()
-    else:
-        model = "";
         
     price_tag = soup.find("span", class_="cdtl_old_price")
     if price_tag != None:

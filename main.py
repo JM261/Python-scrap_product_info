@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request,redirect
 from scrape.scrape_ssg import scrape_item_from_ssg
 from scrape.scrape_hd import scrape_item_from_hd
+from scrape.scrap_lt import scrape_item_from_lt
 
 app = Flask(__name__)
 
@@ -24,7 +25,7 @@ def scrap():
         elif hd != None :
             item_info = scrape_item_from_hd(model)
         elif lt != None :
-            item_info = {}
+            item_info = scrape_item_from_lt(model)
         else :
             item_info = {}
     else:

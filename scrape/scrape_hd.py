@@ -28,64 +28,55 @@ def scrape_item_from_hd(model):
     
     title_tag = soup.find("strong",class_="prduct-name")
     if title_tag != None:
-        # 브랜드명 과 모덺명 을 잘라야 함.
         title = title_tag.text.strip()
     else:
         title = "";
-        
-    model_tag = soup.find("p",class_="cdtl_model_num")
-    if model_tag != None:
-        model_list = model_tag.text.split(":")
-        model = model_list[1].strip()
-    else:
-        model = "";
-        
-    price_tag = soup.find("span", class_="cdtl_old_price")
+
+    price_tag = soup.find('div', {'id': 'PDAItemOptBasicInfoHtml'}).find('div', {'class': 'tblwrap'}).find_all('tr')[1].find('td')
     if price_tag != None:
-        price = re.sub(r'[^0-9]', '', price_tag.select("em")[0].text)
+        price = re.sub(r"[^\d]", "", price_tag.text.strip())
     else:
         price = "";
         
-    color_tag = soup.find("div", class_="cdtl_tbl ty2")
+    color_tag = soup.find('div', {'id': 'PDAItemOptBasicInfoHtml'}).find('div', {'class': 'basic-txt01'}).find_all('div', {'class': 'txt-info'})[1].find('p')
     if color_tag != None:
-        color = color_tag.select('td > div')[1].text
+        color = color_tag.text.strip()
     else:
         color = "";
         
-    size_tag = soup.find("div", class_="cdtl_tbl ty2")
+    size_tag = soup.find('div', {'id': 'PDAItemOptBasicInfoHtml'}).find('div', {'class': 'basic-txt01'}).find_all('div', {'class': 'txt-info'})[2].find('p')
     if size_tag != None:
-        size = size_tag.select('td > div')[2].text
+        size = size_tag.text.strip()
     else:
         size = "";
         
-    material_tag = soup.find("div", class_="cdtl_tbl ty2")
+    material_tag = soup.find('div', {'id': 'PDAItemOptBasicInfoHtml'}).find('div', {'class': 'basic-txt01'}).find_all('div', {'class': 'txt-info'})[0].find('p')
     if material_tag != None:
-        material = material_tag.select('td > div')[0].text
+        material = material_tag.text.strip()
     else:
         material = "";
         
-    country_tag = soup.find("div", class_="cdtl_tbl ty2")
+    country_tag = soup.find('div', {'id': 'PDAItemOptBasicInfoHtml'}).find('div', {'class': 'basic-txt01'}).find_all('div', {'class': 'txt-info'})[4].find('p')
     if country_tag != None:
-        country = country_tag.select('td > div')[8].text
+        country = country_tag.text.strip()
     else:
         country = "";
         
-    company_tag = soup.find("div", class_="cdtl_tbl ty2")
+    company_tag = soup.find('div', {'id': 'PDAItemOptBasicInfoHtml'}).find('div', {'class': 'basic-txt01'}).find_all('div', {'class': 'txt-info'})[3].find('p')
     if company_tag != None:
-        company_list = company_tag.select('td > div')[7].text.split("/")
-        company = company_list[0]
+        company = company_tag.text.strip()
     else:
         company = "";
     
-    create_date_tag = soup.find("div", class_="cdtl_tbl ty2")
+    create_date_tag = soup.find('div', {'id': 'PDAItemOptBasicInfoHtml'}).find('div', {'class': 'basic-txt01'}).find_all('div', {'class': 'txt-info'})[6].find('p')
     if create_date_tag != None:
-        create_date = create_date_tag.select('td > div')[4].text
+        create_date = create_date_tag.text.strip()
     else:
         create_date = "";
     
-    washing_method_tag = soup.find("div", class_="cdtl_tbl ty2")
+    washing_method_tag = soup.find('div', {'id': 'PDAItemOptBasicInfoHtml'}).find('div', {'class': 'basic-txt01'}).find_all('div', {'class': 'txt-info'})[5].find('p')
     if washing_method_tag != None:
-        washing_method = washing_method_tag.select('td > div')[3].text
+        washing_method = washing_method_tag.text.strip()
     else:
         washing_method = "";
     
